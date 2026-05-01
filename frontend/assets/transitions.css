@@ -1,0 +1,41 @@
+/* ═══════════════════════════════════════════
+   PAGE TRANSITIONS — Shared Overlay System
+   ═══════════════════════════════════════════ */
+.page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.page-transition-overlay.active {
+    pointer-events: all;
+}
+
+.transition-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+}
+
+.transition-layer-1 {
+    background: #2563EB;
+    z-index: 3;
+}
+
+.transition-layer-2 {
+    background: #1e40af;
+    z-index: 2;
+}
+
+.transition-layer-3 {
+    background: #EDF2FB;
+    z-index: 1;
+}
