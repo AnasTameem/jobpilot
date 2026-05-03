@@ -32,16 +32,11 @@ def index():
         "index.html",
     )
 
-# ── Catch-all: serve any file from the frontend directory ─────
-@app.route("/<path:filename>")
-def serve_static(filename):
-    return send_from_directory(FRONTEND_DIR, filename)
-
 @app.route("/resume")
 def resume_page():
     return send_from_directory(
-        os.path.join(FRONTEND_DIR, "analysis_page"),
-        "analysis.html"
+        os.path.join(FRONTEND_DIR, "resume_page"),
+        "resume.html"
     )
 @app.route("/analysis")
 def analysis_page():
@@ -52,9 +47,13 @@ def analysis_page():
 @app.route("/jobs")
 def jobs_page():
     return send_from_directory(
-        os.path.join(FRONTEND_DIR, "jobs_page"),
+        os.path.join(FRONTEND_DIR, "job_page"),
         "job_page.html"
     )
+
+@app.route("/<path:filename>")
+def serve_static(filename):
+    return send_from_directory(FRONTEND_DIR, filename)
 
 MAX_FILE_SIZE = 10 * 1024 * 1024        # 10 MB
 ALLOWED_EXTENSIONS = {"pdf", "doc", "docx"}
