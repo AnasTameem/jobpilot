@@ -43,20 +43,20 @@ document.addEventListener('DOMContentLoaded', () => {
             isFileUploaded = true;
             const file = e.target.files[0];
             const fileName = file.name;
-            
+
             // UI Feedback
             const uploadZone = document.querySelector('.resume-upload-zone');
             if (uploadZone) uploadZone.classList.add('uploaded');
-            
+
             btnUpload.classList.remove('bg-primary', 'border-primary', 'hover:bg-white', 'hover:text-primary');
             btnUpload.classList.add('bg-green-600', 'border-green-600', 'hover:bg-green-700', 'hover:border-green-700', 'text-white');
-            
+
             // Update icon to checkmark
             const icon = btnUpload.querySelector('.material-symbols-outlined');
             if (icon) icon.textContent = 'check_circle';
 
             uploadStatus.textContent = fileName.length > 20 ? fileName.substring(0, 17) + '...' : fileName;
-            
+
             // Show action row (View + Delete)
             resumeActionRow.classList.remove('hidden');
             if (uploadedFileUrl) URL.revokeObjectURL(uploadedFileUrl);
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('roles', inputTitles.value);
         formData.append('experience', selectExperience.value);
         formData.append('locations', inputLocation.value);
-        formData.append('opportunityType', 'job'); 
+        formData.append('opportunityType', 'job');
 
         try {
             const response = await fetch('/api/analyze', {
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // CRITICAL: Capture the body exactly once as text
             const rawBody = await response.text();
-            
+
             let result = null;
             try {
                 result = JSON.parse(rawBody);
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Handle Success Logic
             if (result && result.success) {
                 localStorage.setItem('career_analysis', JSON.stringify(result.data));
-                
+
                 if (window.navigateWithTransition) {
                     window.navigateWithTransition('/analysis_page/analysis.html', 'forward');
                 } else {
