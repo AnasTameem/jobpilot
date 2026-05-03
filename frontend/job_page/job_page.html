@@ -246,8 +246,8 @@
         });
     </script>
     <!-- Shared Transitions -->
-    <link rel="stylesheet" href="../assets/transitions.css">
-    <script src="../assets/transitions.js"></script>
+    <link rel="stylesheet" href="/assets/transitions.css">
+    <script src="/assets/transitions.js"></script>
 </head>
 <body class="bg-brand-light font-body text-brand-dark overflow-x-hidden">
     <!-- Loading Overlay -->
@@ -258,7 +258,7 @@
 
     <nav class="navbar" id="navbar">
         <div class="nav-inner">
-            <a href="../landing-page/index.html" class="logo" id="logo">
+            <a href="/" class="logo" id="logo">
                 <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none">
                     <rect width="28" height="28" rx="8" fill="#2563EB"/>
                     <path d="M8 10.5C8 9.67 8.67 9 9.5 9H18.5C19.33 9 20 9.67 20 10.5V11H8V10.5Z" fill="white"/>
@@ -268,8 +268,8 @@
                 <span>JobPilot</span>
             </a>
             <div class="flex items-center gap-4">
-                <a href="../resume_page/resume.html" class="nav-btn">Resume</a>
-                <a href="../analysis_page/analysis.html" class="nav-btn">Analysis</a>
+                <a href="/resume_page/resume.html" class="nav-btn">Resume</a>
+                <a href="/analysis_page/analysis.html" class="nav-btn">Analysis</a>
                 <a href="job_page.html" class="nav-btn nav-btn-active">Job</a>
             </div>
         </div>
@@ -302,16 +302,16 @@
 
             // --- Platform Logo Mapping ---
             const logoMap = {
-                'Indeed': '../Indeed_logo.svg',
-                'Glassdoor': '../Glassdoor_logo.svg',
-                'Naukri': '../Naukri.svg',
-                'Upwork': '../Upwork-logo.svg',
-                'FoundIt': '../foundit logo.png',
-                'Internshala': '../internshala_og_image.jpg'
+                'Indeed': '/Indeed_logo.svg',
+                'Glassdoor': '/Glassdoor_logo.svg',
+                'Naukri': '/Naukri.svg',
+                'Upwork': '/Upwork-logo.svg',
+                'FoundIt': '/foundit logo.png',
+                'Internshala': '/internshala_og_image.jpg'
             };
 
             try {
-                const response = await fetch('http://127.0.0.1:5000/api/scout', {
+                const response = await fetch('/api/scout', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
