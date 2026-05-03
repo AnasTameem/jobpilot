@@ -154,9 +154,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('career_analysis', JSON.stringify(result.data));
 
                 if (window.navigateWithTransition) {
-                    window.navigateWithTransition('/analysis_page/analysis.html', 'forward');
+                    window.navigateWithTransition('/analysis', 'forward');
                 } else {
-                    window.location.href = '/analysis_page/analysis.html';
+                    window.location.href = '/analysis';
                 }
             } else {
                 const failMsg = (result && result.error) ? result.error : 'The AI analysis failed to process your resume.';
