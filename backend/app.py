@@ -3,9 +3,10 @@ app.py  –  CareerAI Flask Backend + Frontend Server
 ──────────────────────────────────────────────────────────────
 Endpoints
   GET  /               → serves the frontend (index.html)
-  GET  /static/<file>  → serves CSS, JS assets
+  GET  /<path>         → serves any static frontend file
   POST /api/analyze    → receive resume file + form fields
                          → returns structured JSON analysis
+  POST /api/scout      → scouts job listings
   GET  /api/health     → health check
 """
 
@@ -31,6 +32,12 @@ def index():
         "index.html",
     )
 
+# ── Catch-all: serve any file from the frontend directory ─────
+@app.route("/<path:filename>")
+def serve_static(filename):
+    return send_from_directory(FRONTEND_DIR, filename)
+
+
 MAX_FILE_SIZE = 10 * 1024 * 1024        # 10 MB
 ALLOWED_EXTENSIONS = {"pdf", "doc", "docx"}
 
@@ -47,7 +54,6 @@ def bad_request(message: str, code: int = 400):
 def handle_exception(e):
     """Ensure any uncaught exceptions return JSON and not HTML."""
     app.logger.exception("Uncaught exception in Flask app")
-    # if it's an HTTP exception, use its code
     code = getattr(e, "code", 500)
     return jsonify({"success": False, "error": f"Server Error: {str(e)}"}), code
 
