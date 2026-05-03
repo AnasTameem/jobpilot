@@ -1,98 +1,103 @@
 <!DOCTYPE html>
 <html class="light" lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>The Intelligence Curator - Analysis</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>JobPilot - Analysis</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com/3.4.1?plugins=forms,container-queries"></script>
     <script>
         tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                "brand-dark": "#03045e",
-                "brand-medium": "#00b4d8",
-                "brand-light": "hsl(222, 100%, 98%)",
-                "background": "hsl(222, 100%, 98%)",
-                "primary": "hsl(227.95, 100%, 48.82%)",
-                "secondary": "#00b4d8"
-              },
-              "fontFamily": {
-                      "headline": ["Manrope"],
-                      "body": ["Inter"]
-              }
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "brand-dark": "#03045e",
+                        "brand-medium": "#00b4d8",
+                        "brand-light": "hsl(222, 100%, 98%)",
+                        "background": "hsl(222, 100%, 98%)",
+                        "primary": "hsl(227.95, 100%, 48.82%)",
+                        "secondary": "#00b4d8"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"]
+                    }
+                },
             },
-          },
-          plugins: [
-            function({ addComponents }) {
-              addComponents({
-                '.material-symbols-outlined': {
-                  'font-variation-settings': "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24",
-                },
-                '.glass-panel': {
-                  'background': 'hsla(228, 100%, 90.9%, 0.7)',
-                  'backdrop-filter': 'blur(20px)',
-                  'border': '1px solid rgba(3, 4, 94, 0.1)',
-                },
-                '.profile-summary-card': {
-                  'background-color': '#DBE3FF',
-                  'border-radius': '1.5rem',
-                  'padding': '2rem',
-                  'color': '#03045e',
-                },
-                '.analysis-signal-badge': {
-                  'padding': '0.25rem 0.75rem',
-                  'background-color': '#03045e',
-                  'border-radius': '9999px',
-                  'font-size': '0.75rem',
-                  'font-weight': '700',
-                  'text-transform': 'uppercase',
-                  'color': '#caf0f8',
-                },
-                '.research-confirmation-btn': {
-                  'width': '100%',
-                  'padding': '1.25rem 1.5rem',
-                  'background-color': 'hsl(227.95, 100%, 48.82%)',
-                  'color': '#ffffff',
-                  'border': '2px solid hsl(227.95, 100%, 48.82%)',
-                  'border-radius': '1rem',
-                  'font-weight': '700',
-                  'display': 'flex',
-                  'align-items': 'center',
-                  'justify-content': 'center',
-                  'gap': '0.75rem',
-                  'transition': 'all 0.2s',
-                  '&:hover': {
-                    'background-color': '#ffffff',
-                    'color': 'hsl(227.95, 100%, 48.82%)',
-                    'border-color': 'hsl(227.95, 100%, 48.82%)',
-                  },
-                  '&:active': {
-                    'background-color': '#ffffff',
-                    'color': 'hsl(227.95, 100%, 48.82%)',
-                    'transform': 'scale(0.97)',
-                  },
-                },
-                '@keyframes slideFromRight': {
-                  '0%': { transform: 'translateX(100%)', opacity: '0' },
-                  '100%': { transform: 'translateX(0)', opacity: '1' },
-                },
-                '@keyframes slideFromLeft': {
-                  '0%': { transform: 'translateX(-100%)', opacity: '0' },
-                  '100%': { transform: 'translateX(0)', opacity: '1' },
-                },
-                '.slide-from-right': {
-                  'animation': 'slideFromRight 1.5s cubic-bezier(0.16, 1, 0.3, 1) both',
-                },
-                '.slide-from-left': {
-                  'animation': 'slideFromLeft 1.5s cubic-bezier(0.16, 1, 0.3, 1) both',
+            plugins: [
+                function ({ addComponents }) {
+                    addComponents({
+                        '.material-symbols-outlined': {
+                            'font-variation-settings': "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24",
+                        },
+                        '.glass-panel': {
+                            'background': 'hsla(228, 100%, 90.9%, 0.7)',
+                            'backdrop-filter': 'blur(20px)',
+                            'border': '1px solid rgba(3, 4, 94, 0.1)',
+                        },
+                        '.profile-summary-card': {
+                            'background-color': '#DBE3FF',
+                            'border-radius': '1.5rem',
+                            'padding': '2rem',
+                            'color': '#03045e',
+                        },
+                        '.analysis-signal-badge': {
+                            'padding': '0.25rem 0.75rem',
+                            'background-color': '#03045e',
+                            'border-radius': '9999px',
+                            'font-size': '0.75rem',
+                            'font-weight': '700',
+                            'text-transform': 'uppercase',
+                            'color': '#caf0f8',
+                        },
+                        '.research-confirmation-btn': {
+                            'width': '100%',
+                            'padding': '1.25rem 1.5rem',
+                            'background-color': 'hsl(227.95, 100%, 48.82%)',
+                            'color': '#ffffff',
+                            'border': '2px solid hsl(227.95, 100%, 48.82%)',
+                            'border-radius': '1rem',
+                            'font-weight': '700',
+                            'display': 'flex',
+                            'align-items': 'center',
+                            'justify-content': 'center',
+                            'gap': '0.75rem',
+                            'transition': 'all 0.2s',
+                            '&:hover': {
+                                'background-color': '#ffffff',
+                                'color': 'hsl(227.95, 100%, 48.82%)',
+                                'border-color': 'hsl(227.95, 100%, 48.82%)',
+                            },
+                            '&:active': {
+                                'background-color': '#ffffff',
+                                'color': 'hsl(227.95, 100%, 48.82%)',
+                                'transform': 'scale(0.97)',
+                            },
+                        },
+                        '@keyframes slideFromRight': {
+                            '0%': { transform: 'translateX(100%)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        '@keyframes slideFromLeft': {
+                            '0%': { transform: 'translateX(-100%)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        '.slide-from-right': {
+                            'animation': 'slideFromRight 1.5s cubic-bezier(0.16, 1, 0.3, 1) both',
+                        },
+                        '.slide-from-left': {
+                            'animation': 'slideFromLeft 1.5s cubic-bezier(0.16, 1, 0.3, 1) both',
+                        }
+                    })
                 }
-              })
-            }
-          ]
+            ]
         }
     </script>
     <style>
@@ -191,32 +196,36 @@
         });
     </script>
     <!-- Shared Transitions -->
-    <link rel="stylesheet" href="../assets/transitions.css">
-    <script src="../assets/transitions.js"></script>
+    <link rel="stylesheet" href="/assets/transitions.css">
+    <script src="/assets/transitions.js"></script>
 </head>
+
 <body class="bg-brand-light font-body text-brand-dark overflow-x-hidden">
     <nav class="navbar" id="navbar">
         <div class="nav-inner">
-            <a href="../landing-page/index.html" class="logo" id="logo">
+            <a href="/" class="logo" id="logo">
                 <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                    <rect width="28" height="28" rx="8" fill="#2563EB"/>
-                    <path d="M8 10.5C8 9.67 8.67 9 9.5 9H18.5C19.33 9 20 9.67 20 10.5V11H8V10.5Z" fill="white"/>
-                    <rect x="7" y="12" width="14" height="8" rx="1.5" fill="white" fill-opacity="0.9"/>
-                    <path d="M12 12V14.5C12 14.78 12.22 15 12.5 15H15.5C15.78 15 16 14.78 16 14.5V12" stroke="#2563EB" stroke-width="1.2"/>
+                    <rect width="28" height="28" rx="8" fill="#2563EB" />
+                    <path d="M8 10.5C8 9.67 8.67 9 9.5 9H18.5C19.33 9 20 9.67 20 10.5V11H8V10.5Z" fill="white" />
+                    <rect x="7" y="12" width="14" height="8" rx="1.5" fill="white" fill-opacity="0.9" />
+                    <path d="M12 12V14.5C12 14.78 12.22 15 12.5 15H15.5C15.78 15 16 14.78 16 14.5V12" stroke="#2563EB"
+                        stroke-width="1.2" />
                 </svg>
                 <span>JobPilot</span>
             </a>
             <div class="flex items-center gap-4">
-                <a href="../resume_page/resume.html" class="nav-btn">Resume</a>
-                <a href="analysis.html" class="nav-btn nav-btn-active">Analysis</a>
-                <a href="../job_page/job_page.html" class="nav-btn">Job</a>
+                <a href="/resume" class="nav-btn">Resume</a>
+                <a href="/analysis" class="nav-btn nav-btn-active">Analysis</a>
+                <a href="/jobs" class="nav-btn">Job</a>
             </div>
         </div>
     </nav>
     <main class="min-h-screen pt-32 pb-12 px-8 max-w-7xl mx-auto">
         <div class="mb-12">
-            <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-brand-dark mb-4">Analysis Complete</h1>
-            <p class="text-brand-dark/70 text-xl font-medium max-w-2xl">Our AI has extracted the core signals from your experience to match you with high-growth opportunities.</p>
+            <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-brand-dark mb-4">Analysis
+                Complete</h1>
+            <p class="text-brand-dark/70 text-xl font-medium max-w-2xl">Our AI has extracted the core signals from your
+                experience to match you with high-growth opportunities.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
             <div class="md:col-span-8 profile-summary-card h-full">
@@ -231,13 +240,15 @@
                     </div>
 
                     <!-- Row 2: Experience & Desired Roles -->
-                    <div class="flex flex-col sm:flex-row justify-between items-start gap-8 pb-6 border-b border-brand-dark/10">
+                    <div
+                        class="flex flex-col sm:flex-row justify-between items-start gap-8 pb-6 border-b border-brand-dark/10">
                         <div class="flex-1">
                             <span class="block text-xs font-bold uppercase tracking-widest opacity-60">Experience</span>
                             <p id="user-experience" class="text-lg font-bold">--</p>
                         </div>
                         <div class="flex-1 sm:text-right">
-                            <span class="block text-xs font-bold uppercase tracking-widest opacity-60">Desired Roles</span>
+                            <span class="block text-xs font-bold uppercase tracking-widest opacity-60">Desired
+                                Roles</span>
                             <p id="user-roles" class="text-lg font-bold">--</p>
                         </div>
                     </div>
@@ -245,12 +256,15 @@
                     <!-- Row 3: Preferred Locations & LinkedIn -->
                     <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
                         <div>
-                            <span class="block text-xs font-bold uppercase tracking-widest opacity-60">Preferred Locations</span>
+                            <span class="block text-xs font-bold uppercase tracking-widest opacity-60">Preferred
+                                Locations</span>
                             <p id="user-locations" class="text-lg font-bold">--</p>
                         </div>
                         <div class="sm:text-right">
-                            <span class="block text-xs font-bold uppercase tracking-widest opacity-60 mb-1">Professional Profile</span>
-                            <a id="linkedin-link" href="#" target="_blank" class="flex items-center gap-1 font-bold text-accent hover:underline">
+                            <span class="block text-xs font-bold uppercase tracking-widest opacity-60 mb-1">Professional
+                                Profile</span>
+                            <a id="linkedin-link" href="#" target="_blank"
+                                class="flex items-center gap-1 font-bold text-accent hover:underline">
                                 <span class="material-symbols-outlined text-base">link</span>
                                 LinkedIn Profile
                             </a>
@@ -259,14 +273,16 @@
                 </div>
             </div>
             <div class="md:col-span-4 h-full">
-                <div class="rounded-2xl p-8 shadow-sm h-full flex flex-col" style="background-color: #DBE3FF; border: 1px solid rgba(3, 4, 94, 0.1);">
+                <div class="rounded-2xl p-8 shadow-sm h-full flex flex-col"
+                    style="background-color: #DBE3FF; border: 1px solid rgba(3, 4, 94, 0.1);">
                     <div class="flex-1">
-                        <span class="block text-xs font-bold uppercase tracking-widest opacity-60 mb-4">Recommended Positions</span>
+                        <span class="block text-xs font-bold uppercase tracking-widest opacity-60 mb-4">Recommended
+                            Positions</span>
                         <div id="preferred-roles-container" class="space-y-3">
                             <!-- Roles will be injected here as a stack -->
                         </div>
                     </div>
-                    <a class="research-confirmation-btn mt-8" href="../job_page/job_page.html">
+                    <a class="research-confirmation-btn mt-8" href="/jobs">
                         View Matches <span class="material-symbols-outlined">arrow_forward</span>
                     </a>
                 </div>
@@ -290,13 +306,21 @@
             const data = JSON.parse(localStorage.getItem('career_analysis'));
 
             if (!data) {
-                console.warn('No analysis data found in localStorage');
+                document.querySelector('main').innerHTML = `
+                    <div class="flex flex-col items-center justify-center min-h-[60vh] text-center">
+                        <div class="text-accent/20 mb-4"><span class="material-symbols-outlined text-6xl">auto_awesome</span></div>
+                        <h2 class="text-2xl font-bold text-text-primary mb-4">No Analysis Data</h2>
+                        <p class="text-text-secondary mb-6">Please upload your resume first to get personalized insights.</p>
+                        <a href="/resume" style="background:#2563EB;color:white;padding:0.75rem 2rem;border-radius:999px;text-decoration:none;font-weight:600;">
+                            Upload Resume</a>
+                    </div>
+                `;
                 return;
             }
 
             // Candidate Name
             document.getElementById('candidate-name').textContent = data.candidate.name || 'Not Found';
-            
+
             // User Inputs
             const inputs = data.user_inputs || {};
             document.getElementById('user-experience').textContent = inputs.experience || 'Not specified';
@@ -315,7 +339,7 @@
             // AI Preferred Roles (Stack)
             const rolesContainer = document.getElementById('preferred-roles-container');
             const roles = data.preferred_roles || [];
-            
+
             if (roles.length > 0) {
                 rolesContainer.innerHTML = roles.map(role => `
                     <div class="p-4 bg-white text-brand-dark border border-brand-dark/5 rounded-xl text-sm font-bold shadow-sm">
@@ -328,4 +352,5 @@
         });
     </script>
 </body>
+
 </html>
