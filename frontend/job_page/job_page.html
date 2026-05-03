@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>JobPilot - Job Matches</title>
+    <title>The Intelligence Curator - Job Matches</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
         rel="stylesheet" />
@@ -278,9 +278,9 @@
                 <span>JobPilot</span>
             </a>
             <div class="flex items-center gap-4">
-                <a href="/resume" class="nav-btn">Resume</a>
-                <a href="/analysis" class="nav-btn">Analysis</a>
-                <a href="/jobs" class="nav-btn nav-btn-active">Job</a>
+                <a href="/resume_page/resume.html" class="nav-btn">Resume</a>
+                <a href="/analysis_page/analysis.html" class="nav-btn">Analysis</a>
+                <a href="job_page.html" class="nav-btn nav-btn-active">Job</a>
             </div>
         </div>
     </nav>
@@ -349,7 +349,7 @@
                     jobsContainer.innerHTML = result.jobs.map(job => `
                         <div class="recommended-job-card shadow-sm hover:shadow-md transition-shadow">
                             <div class="company-branding-initials bg-white p-2">
-                                <img src="${logoMap[job.platform] || '/Indeed_logo.svg'}" class="w-full h-full object-contain" alt="${job.platform}">
+                                <img src="${logoMap[job.platform] || '../Indeed_logo.svg'}" class="w-full h-full object-contain" alt="${job.platform}">
                             </div>
                             <div class="flex-1">
                                 <div class="flex justify-between items-start mb-2">

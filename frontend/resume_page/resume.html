@@ -1,389 +1,370 @@
 <!DOCTYPE html>
 <html class="light" lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>JobPilot - Resume Upload</title>
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect" />
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap"
-    rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-    rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com/3.4.1?plugins=forms,container-queries"></script>
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          "colors": {
-            "brand-dark": "#03045e",
-            "brand-medium": "#00b4d8",
-            "brand-light": "hsl(222, 100%, 98%)",
-            "on-brand-light": "#03045e",
-            "on-brand-dark": "hsl(222, 100%, 98%)",
-            "background": "hsl(222, 100%, 98%)",
-            "surface": "hsl(222, 100%, 98%)",
-            "primary": "hsl(227.95, 100%, 48.82%)",
-            "secondary": "#00b4d8"
-          },
-          "borderRadius": {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            "full": "9999px"
-          },
-          "fontFamily": {
-            "headline": ["Manrope"],
-            "body": ["Inter"],
-            "label": ["Inter"]
-          }
-        },
-      },
-      plugins: [
-        function ({ addComponents }) {
-          addComponents({
-            '.material-symbols-outlined': {
-              'font-variation-settings': "'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24",
-            },
-            '.glass-panel': {
-              'background': 'hsla(228, 100%, 90.9%, 0.7)',
-              'backdrop-filter': 'blur(20px)',
-              'border': '1px solid rgba(3, 4, 94, 0.1)',
-            },
-            'body': {
-              'overflow-x': 'hidden',
-              'width': '100%',
-            },
-            '.nav-link-disabled': {
-              'pointer-events': 'none',
-              'opacity': '0.3',
-              'cursor': 'not-allowed',
-            },
-            '.resume-upload-zone': {
-              'background-color': '#DBE3FF',
-              'color': '#03045e',
-              'border': '2px dashed #03045e',
-              'border-radius': '1.8rem',
-              'padding': '3rem',
-              'display': 'flex',
-              'flex-direction': 'column',
-              'align-items': 'center',
-              'justify-content': 'center',
-              'min-height': '400px',
-              'transition': 'all 0.3s',
-              'text-align': 'center',
-              '&:hover': {
-                'background-color': '#ffffff',
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>The Intelligence Curator - Onboarding</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com/3.4.1?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "brand-dark": "#03045e",
+                "brand-medium": "#00b4d8",
+                "brand-light": "hsl(222, 100%, 98%)",
+                "on-brand-light": "#03045e",
+                "on-brand-dark": "hsl(222, 100%, 98%)",
+                "background": "hsl(222, 100%, 98%)",
+                "surface": "hsl(222, 100%, 98%)",
+                "primary": "hsl(227.95, 100%, 48.82%)",
+                "secondary": "#00b4d8"
               },
-              '&.uploaded': {
-                'background-color': 'rgba(22, 163, 74, 0.05)',
-                'border-style': 'solid',
-                'border-color': '#16a34a',
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
               },
-              '&.uploaded:hover': {
-                'background-color': 'rgba(22, 163, 74, 0.1)',
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
               }
             },
-            '.onboarding-form-input': {
-              'width': '100%',
-              'padding': '1rem 1.25rem',
-              'background-color': 'hsl(222, 100%, 98%)',
-              'border': '1px solid #03045e',
-              'border-radius': '0.75rem',
-              'transition': 'all 0.2s',
-              'color': '#03045e',
-              '&:focus': {
-                'box-shadow': '0 0 0 2px rgba(0, 180, 216, 0.2)',
-                'outline': 'none',
-              },
-            },
-            '.analysis-trigger-btn': {
-              'width': '100%',
-              'padding': '1.25rem',
-              'background-color': 'hsl(227.95, 100%, 48.82%)',
-              'color': '#ffffff',
-              'border': '2px solid hsl(227.95, 100%, 48.82%)',
-              'border-radius': '0.75rem',
-              'font-weight': '700',
-              'font-size': '1.125rem',
-              'display': 'flex',
-              'align-items': 'center',
-              'justify-content': 'center',
-              'gap': '0.5rem',
-              'transition': 'all 0.2s',
-              '&:hover': {
-                'background-color': '#ffffff',
-                'color': 'hsl(227.95, 100%, 48.82%)',
-                'border-color': 'hsl(227.95, 100%, 48.82%)',
-              },
-              '&:active': {
-                'background-color': '#ffffff',
-                'color': 'hsl(227.95, 100%, 48.82%)',
-                'transform': 'scale(0.98)',
-              },
-            },
-            '@keyframes slideFromRight': {
-              '0%': { transform: 'translateX(100%)', opacity: '0' },
-              '100%': { transform: 'translateX(0)', opacity: '1' },
-            },
-            '@keyframes slideFromLeft': {
-              '0%': { transform: 'translateX(-100%)', opacity: '0' },
-              '100%': { transform: 'translateX(0)', opacity: '1' },
-            },
-            '.slide-from-right': {
-              'animation': 'slideFromRight 1.5s cubic-bezier(0.16, 1, 0.3, 1) both',
-            },
-            '.slide-from-left': {
-              'animation': 'slideFromLeft 1.5s cubic-bezier(0.16, 1, 0.3, 1) both',
+          },
+          plugins: [
+            function({ addComponents }) {
+              addComponents({
+                '.material-symbols-outlined': {
+                  'font-variation-settings': "'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24",
+                },
+                '.glass-panel': {
+                  'background': 'hsla(228, 100%, 90.9%, 0.7)',
+                  'backdrop-filter': 'blur(20px)',
+                  'border': '1px solid rgba(3, 4, 94, 0.1)',
+                },
+                'body': {
+                  'overflow-x': 'hidden',
+                  'width': '100%',
+                },
+                '.nav-link-disabled': {
+                  'pointer-events': 'none',
+                  'opacity': '0.3',
+                  'cursor': 'not-allowed',
+                },
+                '.resume-upload-zone': {
+                  'background-color': '#DBE3FF',
+                  'color': '#03045e',
+                  'border': '2px dashed #03045e',
+                  'border-radius': '1.8rem',
+                  'padding': '3rem',
+                  'display': 'flex',
+                  'flex-direction': 'column',
+                  'align-items': 'center',
+                  'justify-content': 'center',
+                  'min-height': '400px',
+                  'transition': 'all 0.3s',
+                  'text-align': 'center',
+                  '&:hover': {
+                    'background-color': '#ffffff',
+                  },
+                  '&.uploaded': {
+                    'background-color': 'rgba(22, 163, 74, 0.05)',
+                    'border-style': 'solid',
+                    'border-color': '#16a34a',
+                  },
+                  '&.uploaded:hover': {
+                    'background-color': 'rgba(22, 163, 74, 0.1)',
+                  }
+                },
+                '.onboarding-form-input': {
+                  'width': '100%',
+                  'padding': '1rem 1.25rem',
+                  'background-color': 'hsl(222, 100%, 98%)',
+                  'border': '1px solid #03045e',
+                  'border-radius': '0.75rem',
+                  'transition': 'all 0.2s',
+                  'color': '#03045e',
+                  '&:focus': {
+                    'box-shadow': '0 0 0 2px rgba(0, 180, 216, 0.2)',
+                    'outline': 'none',
+                  },
+                },
+                '.analysis-trigger-btn': {
+                  'width': '100%',
+                  'padding': '1.25rem',
+                  'background-color': 'hsl(227.95, 100%, 48.82%)',
+                  'color': '#ffffff',
+                  'border': '2px solid hsl(227.95, 100%, 48.82%)',
+                  'border-radius': '0.75rem',
+                  'font-weight': '700',
+                  'font-size': '1.125rem',
+                  'display': 'flex',
+                  'align-items': 'center',
+                  'justify-content': 'center',
+                  'gap': '0.5rem',
+                  'transition': 'all 0.2s',
+                  '&:hover': {
+                    'background-color': '#ffffff',
+                    'color': 'hsl(227.95, 100%, 48.82%)',
+                    'border-color': 'hsl(227.95, 100%, 48.82%)',
+                  },
+                  '&:active': {
+                    'background-color': '#ffffff',
+                    'color': 'hsl(227.95, 100%, 48.82%)',
+                    'transform': 'scale(0.98)',
+                  },
+                },
+                '@keyframes slideFromRight': {
+                  '0%': { transform: 'translateX(100%)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                '@keyframes slideFromLeft': {
+                  '0%': { transform: 'translateX(-100%)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                '.slide-from-right': {
+                  'animation': 'slideFromRight 1.5s cubic-bezier(0.16, 1, 0.3, 1) both',
+                },
+                '.slide-from-left': {
+                  'animation': 'slideFromLeft 1.5s cubic-bezier(0.16, 1, 0.3, 1) both',
+                }
+              })
             }
-          })
+          ]
         }
-      ]
-    }
-  </script>
-  <style>
-    :root {
-      --bg-primary: #EDF2FB;
-      --bg-white: #FFFFFF;
-      --surface: #F1F5F9;
-      --border: #E2E8F0;
-      --text-primary: #0F172A;
-      --text-secondary: #64748B;
-      --accent: #2563EB;
-      --accent-hover: #1D4ED8;
-      --accent-light: #DBEAFE;
-      --accent-soft: #EFF6FF;
-      --radius-full: 999px;
-    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #EDF2FB;
+            --bg-white: #FFFFFF;
+            --surface: #F1F5F9;
+            --border: #E2E8F0;
+            --text-primary: #0F172A;
+            --text-secondary: #64748B;
+            --accent: #2563EB;
+            --accent-hover: #1D4ED8;
+            --accent-light: #DBEAFE;
+            --accent-soft: #EFF6FF;
+            --radius-full: 999px;
+        }
 
-    .navbar {
-      position: fixed;
-      top: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: calc(100% - 2.5rem);
-      max-width: 1200px;
-      z-index: 1000;
-      padding: 0 2rem;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: var(--radius-full);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-      transition: all 0.3s ease;
-    }
+        .navbar {
+            position: fixed;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 2.5rem);
+            max-width: 1200px;
+            z-index: 1000;
+            padding: 0 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-full);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
 
-    .navbar.scrolled {
-      background: rgba(255, 255, 255, 0.4);
-      border-color: rgba(255, 255, 255, 0.5);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-    }
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.4);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
 
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 64px;
-    }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--text-primary);
-      font-weight: 700;
-      font-size: 1.2rem;
-      letter-spacing: -0.3px;
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.3px;
+        }
 
-    .nav-btn {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.5rem 1.25rem;
-      font-family: inherit;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--accent);
-      background: var(--accent-soft);
-      border: 1px solid var(--accent-light);
-      border-radius: var(--radius-full);
-      text-decoration: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1.25rem;
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--accent);
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-light);
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-    .nav-btn:hover {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
-    }
+        .nav-btn:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
 
-    .nav-btn-active {
-      background: var(--accent) !important;
-      color: white !important;
-      border-color: var(--accent) !important;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
-    }
+        .nav-btn-active {
+            background: var(--accent) !important;
+            color: white !important;
+            border-color: var(--accent) !important;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
 
-    /* --- LOADING OVERLAY --- */
-    #loading-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(237, 242, 251, 0.8);
-      backdrop-filter: blur(10px);
-      z-index: 9999;
-      display: none;
-      /* Hidden by default */
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-    }
+        /* --- LOADING OVERLAY --- */
+        #loading-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(237, 242, 251, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
 
-    .spinner {
-      width: 50px;
-      height: 50px;
-      border: 4px solid rgba(37, 99, 235, 0.1);
-      border-left-color: var(--accent);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(37, 99, 235, 0.1);
+            border-left-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
 
-    .loading-text {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 700;
-      color: var(--brand-dark);
-      font-size: 1.25rem;
-      letter-spacing: -0.02em;
-    }
-  </style>
-  <script>
-    window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY > 50;
-      document.querySelector(".navbar").classList.toggle("scrolled", scrolled);
-    });
-  </script>
-  <!-- Shared Transitions -->
-  <link rel="stylesheet" href="/assets/transitions.css">
-
-  <!-- GSAP Core -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="/assets/transitions.js"></script>
+        .loading-text {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+            color: var(--brand-dark);
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY > 50;
+            document.querySelector(".navbar").classList.toggle("scrolled", scrolled);
+        });
+    </script>
+    <!-- Shared Transitions -->
+    <link rel="stylesheet" href="../assets/transitions.css">
+    
+    <!-- GSAP Core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="../assets/transitions.js"></script>
 </head>
-
 <body class="bg-brand-light font-body text-brand-dark overflow-x-hidden">
-  <!-- Loading Overlay -->
-  <div id="loading-overlay">
-    <div class="spinner"></div>
-    <p class="loading-text">AI is analyzing your career profile...</p>
-  </div>
-
-  <!-- TopNavBar -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-inner">
-      <a href="/" class="logo" id="logo">
-        <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none">
-          <rect width="28" height="28" rx="8" fill="#2563EB" />
-          <path d="M8 10.5C8 9.67 8.67 9 9.5 9H18.5C19.33 9 20 9.67 20 10.5V11H8V10.5Z" fill="white" />
-          <rect x="7" y="12" width="14" height="8" rx="1.5" fill="white" fill-opacity="0.9" />
-          <path d="M12 12V14.5C12 14.78 12.22 15 12.5 15H15.5C15.78 15 16 14.78 16 14.5V12" stroke="#2563EB"
-            stroke-width="1.2" />
-        </svg>
-        <span>JobPilot</span>
-      </a>
-      <div class="flex items-center gap-4">
-        <a href="/resume" class="nav-btn nav-btn-active">Resume</a>
-        <a id="nav-analysis" href="/analysis" class="nav-btn nav-link-disabled">Analysis</a>
-        <a id="nav-jobs" href="/jobs" class="nav-btn nav-link-disabled">Job</a>
-      </div>
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+        <p class="loading-text">AI is analyzing your career profile...</p>
     </div>
-  </nav>
-  <main class="min-h-screen pt-32 max-w-7xl mx-auto pb-12">
-    <section class="mx-auto px-8 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
-      <!-- Left: Resume Upload Area -->
-      <div class="lg:col-span-7 h-full">
-        <div class="p-1 rounded-[2rem] h-full" style="background-color: #DBE3FF;">
-          <div class="resume-upload-zone group h-full">
-            <div
-              class="w-20 h-20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
-              style="background-color: #0032F9;">
-              <span class="material-symbols-outlined text-4xl text-brand-light">cloud_upload</span>
-            </div>
-            <h2 class="text-2xl font-bold font-headline mb-3 text-brand-dark">Upload your resume</h2>
-            <p class="text-brand-dark/70 max-w-xs mx-auto mb-8 font-medium">
-              Our AI curates your data to find elite matches. Drag and drop your PDF or Docx file here.
-            </p>
-            <input type="file" id="resume-file-input" accept=".pdf,.docx" class="hidden" />
-            <div class="flex flex-col items-center gap-4 w-full">
-              <button id="btn-upload" type="button"
-                class="px-8 py-4 text-white bg-primary rounded-xl font-semibold flex items-center gap-3 transition-all hover:bg-white hover:text-primary border-2 border-primary">
-                <span class="material-symbols-outlined" aria-hidden="true">upload_file</span>
-                <span id="upload-status">Select File</span>
-              </button>
-              <div id="resume-action-row" class="hidden flex items-center gap-4">
-                <button id="btn-view-resume" type="button"
-                  class="text-sm font-bold text-brand-dark/60 hover:text-brand-dark flex items-center gap-2 transition-all">
-                  <span class="material-symbols-outlined text-base">visibility</span>
-                  View Resume
-                </button>
-                <button id="btn-delete-resume" type="button"
-                  class="text-sm font-bold text-red-500/70 hover:text-red-600 flex items-center gap-2 transition-all">
-                  <span class="material-symbols-outlined text-base">delete</span>
-                  Delete Resume
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Right: Preferences -->
-      <div class="lg:col-span-5 h-full flex flex-col">
-        <div class="glass-panel p-8 rounded-3xl flex-1 flex flex-col">
-          <h3 class="text-xl font-bold font-headline text-brand-dark mb-8">Intelligence Filters</h3>
-          <div class="space-y-6 flex-1">
-            <div class="space-y-2">
-              <label class="text-sm font-bold text-brand-dark uppercase tracking-wider">Preferred Job Titles</label>
-              <input id="input-titles" class="onboarding-form-input placeholder:text-brand-dark/30"
-                placeholder="e.g. Senior AI Engineer" type="text" />
-            </div>
-            <div class="space-y-2">
-              <label class="text-sm font-bold text-brand-dark uppercase tracking-wider">Years of Experience</label>
-              <input id="select-experience" class="onboarding-form-input placeholder:text-brand-dark/30"
-                placeholder="e.g. 5" type="number" min="0" />
-            </div>
-            <div class="space-y-2">
-              <label class="text-sm font-bold text-brand-dark uppercase tracking-wider">Location</label>
-              <input id="input-location" class="onboarding-form-input placeholder:text-brand-dark/30"
-                placeholder="e.g. Remote" type="text" />
-            </div>
-          </div>
-        </div>
-        <div class="pt-6 mt-auto">
-          <button id="btn-main-action" class="analysis-trigger-btn nav-link-disabled w-full">
-            Analyze Profile <span class="material-symbols-outlined">arrow_forward</span>
-          </button>
-        </div>
-      </div>
-    </section>
-  </main>
 
-  <script src="validation.js"></script>
+    <!-- TopNavBar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="../landing-page/index.html" class="logo" id="logo">
+                <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <rect width="28" height="28" rx="8" fill="#2563EB"/>
+                    <path d="M8 10.5C8 9.67 8.67 9 9.5 9H18.5C19.33 9 20 9.67 20 10.5V11H8V10.5Z" fill="white"/>
+                    <rect x="7" y="12" width="14" height="8" rx="1.5" fill="white" fill-opacity="0.9"/>
+                    <path d="M12 12V14.5C12 14.78 12.22 15 12.5 15H15.5C15.78 15 16 14.78 16 14.5V12" stroke="#2563EB" stroke-width="1.2"/>
+                </svg>
+                <span>JobPilot</span>
+            </a>
+            <div class="flex items-center gap-4">
+                <a href="resume.html" class="nav-btn nav-btn-active">Resume</a>
+                <a id="nav-analysis" href="../analysis_page/analysis.html" class="nav-btn nav-link-disabled">Analysis</a>
+                <a id="nav-jobs" href="../job_page/job_page.html" class="nav-btn nav-link-disabled">Job</a>
+            </div>
+        </div>
+    </nav>
+    <main class="min-h-screen pt-32 max-w-7xl mx-auto pb-12">
+        <section class="mx-auto px-8 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+            <!-- Left: Resume Upload Area -->
+            <div class="lg:col-span-7 h-full">
+                <div class="p-1 rounded-[2rem] h-full" style="background-color: #DBE3FF;">
+                    <div class="resume-upload-zone group h-full">
+                        <div class="w-20 h-20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform" style="background-color: #0032F9;">
+                            <span class="material-symbols-outlined text-4xl text-brand-light">cloud_upload</span>
+                        </div>
+                        <h2 class="text-2xl font-bold font-headline mb-3 text-brand-dark">Upload your resume</h2>
+                        <p class="text-brand-dark/70 max-w-xs mx-auto mb-8 font-medium">
+                            Our AI curates your data to find elite matches. Drag and drop your PDF or Docx file here.
+                        </p>
+                        <input type="file" id="resume-file-input" accept=".pdf,.docx" class="hidden"/>
+                        <div class="flex flex-col items-center gap-4 w-full">
+                            <button id="btn-upload" type="button" class="px-8 py-4 text-white bg-primary rounded-xl font-semibold flex items-center gap-3 transition-all hover:bg-white hover:text-primary border-2 border-primary">
+                                <span class="material-symbols-outlined" aria-hidden="true">upload_file</span>
+                                <span id="upload-status">Select File</span>
+                            </button>
+                            <div id="resume-action-row" class="hidden flex items-center gap-4">
+                                <button id="btn-view-resume" type="button" class="text-sm font-bold text-brand-dark/60 hover:text-brand-dark flex items-center gap-2 transition-all">
+                                    <span class="material-symbols-outlined text-base">visibility</span>
+                                    View Resume
+                                </button>
+                                <button id="btn-delete-resume" type="button" class="text-sm font-bold text-red-500/70 hover:text-red-600 flex items-center gap-2 transition-all">
+                                    <span class="material-symbols-outlined text-base">delete</span>
+                                    Delete Resume
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right: Preferences -->
+            <div class="lg:col-span-5 h-full flex flex-col">
+                <div class="glass-panel p-8 rounded-3xl flex-1 flex flex-col">
+                    <h3 class="text-xl font-bold font-headline text-brand-dark mb-8">Intelligence Filters</h3>
+                    <div class="space-y-6 flex-1">
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold text-brand-dark uppercase tracking-wider">Preferred Job Titles</label>
+                            <input id="input-titles" class="onboarding-form-input placeholder:text-brand-dark/30" placeholder="e.g. Senior AI Engineer" type="text"/>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold text-brand-dark uppercase tracking-wider">Years of Experience</label>
+                            <input id="select-experience" class="onboarding-form-input placeholder:text-brand-dark/30" placeholder="e.g. 5" type="number" min="0"/>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold text-brand-dark uppercase tracking-wider">Location</label>
+                            <input id="input-location" class="onboarding-form-input placeholder:text-brand-dark/30" placeholder="e.g. Remote" type="text"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-6 mt-auto">
+                    <button id="btn-main-action" class="analysis-trigger-btn nav-link-disabled w-full">
+                        Analyze Profile <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="validation.js"></script>
 </body>
-
 </html>

@@ -37,24 +37,6 @@ def index():
 def serve_static(filename):
     return send_from_directory(FRONTEND_DIR, filename)
 
-@app.route("/resume")
-def resume_page():
-    return send_from_directory(
-        os.path.join(FRONTEND_DIR, "analysis_page"),
-        "analysis.html"
-    )
-@app.route("/analysis")
-def analysis_page():
-    return send_from_directory(
-        os.path.join(FRONTEND_DIR, "analysis_page"),
-        "analysis.html"
-    )
-@app.route("/jobs")
-def jobs_page():
-    return send_from_directory(
-        os.path.join(FRONTEND_DIR, "jobs_page"),
-        "job_page.html"
-    )
 
 MAX_FILE_SIZE = 10 * 1024 * 1024        # 10 MB
 ALLOWED_EXTENSIONS = {"pdf", "doc", "docx"}
